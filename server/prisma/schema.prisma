@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "foreignKeys"
+}
+
+model categories {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(50)
+  description String?   @db.Text
+  created_at  DateTime? @default(now()) @db.DateTime(0)
+  updated_at  DateTime? @default(now()) @db.DateTime(0)
+  status      Int?      @default(1) @db.TinyInt
+}
+
+model products {
+  id          Int       @id @default(autoincrement())
+  name        String    @db.VarChar(100)
+  description String?   @db.Text
+  price       Decimal   @db.Decimal(10, 2)
+  stock       Int       @default(0)
+  category_id Int?
+  created_at  DateTime? @default(now()) @db.DateTime(0)
+  updated_at  DateTime? @default(now()) @db.DateTime(0)
+  status      Int?      @default(1) @db.TinyInt
+
+  @@index([category_id], map: "category_id")
+}
+
+model users {
+  id         Int         @id @default(autoincrement())
+  username   String      @unique(map: "username") @db.VarChar(50)
+  password   String      @db.VarChar(255)
+  role       users_role? @default(USER)
+  created_at DateTime?   @default(now()) @db.Timestamp(0)
+  updated_at DateTime?   @default(now()) @db.DateTime(0)
+  status     Int?        @default(1) @db.TinyInt
+}
+
+enum users_role {
+  ADMIN
+  USER
+}

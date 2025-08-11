@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+
+# Build
+dist/
+build/
+
+# Env
+.env
+**/.env
+**/.env.local
+**/.env.*.local
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Angular/Vite (cuando creemos el client)
+client/.angular/
+client/.vite/
