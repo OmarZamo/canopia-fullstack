@@ -14,24 +14,24 @@ import { MessageService } from 'primeng/api';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, CardModule, InputTextModule, ButtonModule, Toast],
   template: `
-  <p-toast></p-toast>
-  <div class="page">
-    <p-card header="Iniciar sesión" styleClass="w-full">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="grid">
-        <div class="field">
-          <label for="username">Usuario</label>
-          <input pInputText id="username" formControlName="username" />
+  <p-toast position="top-center"></p-toast>
+  <div class="auth-shell">
+    <p-card styleClass="auth-card" header="Iniciar sesión">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-3">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input pInputText id="username" placeholder=" Usuario" formControlName="username" />
         </div>
-        <div class="field">
-          <label for="password">Contraseña</label>
-          <input pInputText id="password" type="password" formControlName="password" />
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+          <input pInputText id="password" type="password" placeholder=" Contraseña" formControlName="password" />
         </div>
         <button pButton type="submit" label="Entrar" [disabled]="form.invalid || loading"></button>
       </form>
     </p-card>
   </div>
-  `,
-  styles: [`.page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem}.grid{display:flex;flex-direction:column;gap:.75rem;width:280px}.field{display:flex;flex-direction:column;gap:.25rem}`]
+`,
+styles: [``]
 })
 export class LoginComponent {
   private fb = inject(FormBuilder);

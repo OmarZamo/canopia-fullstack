@@ -1,0 +1,158 @@
+/* ===========================
+   BASE / RESET / TIPOGRAFÍA
+   =========================== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #f3f5f8 0%, #f8fafc 100%);
+  color: #0f172a;
+}
+
+/* ===========================
+   LAYOUT / CONTENEDORES
+   =========================== */
+.container { max-width: 1100px; margin: 0 auto; padding: 1rem; }
+
+/* Tarjetas y botones*/
+.p-card { border-radius: 16px; }
+
+/* Login */
+.auth-shell { min-height: 100vh; display: grid; place-items: center; padding: 2rem; }
+.auth-card { width: 100%; max-width: 420px; }
+
+/* Encabezados internos */
+.section-title { font-size: 1.25rem; font-weight: 600; margin: 0; }
+
+/* ===========================
+   VARIABLES & TABLA
+   =========================== */
+:root { 
+  --min-table-width: 56rem; 
+  --brand: #0ea5e9;       
+  --brand-hover: #0284c7;
+  --secondary: #475569;    
+  --secondary-hover: #334155;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+}
+.table-wrap .p-table { width: 100%; }
+
+/* ===========================
+   BOTONES 
+   =========================== */
+button.p-button,
+.p-button.p-component {
+  border-radius: 12px !important;
+  padding: .55rem 1rem !important;
+  font-weight: 600 !important;
+}
+
+/* Primario por defecto */
+.p-button:not(.p-button-secondary):not(.p-button-danger):not(.p-button-outlined):not(.p-button-text) {
+  background: #0ea5e9 !important;   
+  border-color: #0ea5e9 !important;
+  color: #fff !important;
+}
+.p-button:not(.p-button-secondary):not(.p-button-danger):not(.p-button-outlined):not(.p-button-text):hover {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+}
+
+/* Secundario y Peligro */
+.p-button.p-button-secondary {
+  background: #475569 !important;
+  border-color: #475569 !important;
+  color: #fff !important;
+}
+.p-button.p-button-secondary:hover {
+  background: #334155 !important;
+  border-color: #334155 !important;
+}
+.p-button.p-button-danger {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #fff !important;
+}
+.p-button.p-button-danger:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+}
+
+/* ===========================
+   TOOLBAR / DATATABLE
+   =========================== */
+.p-toolbar { border-radius: 12px; }
+.p-datatable .p-datatable-header, .p-datatable .p-datatable-thead > tr > th { border: 0; }
+
+/* ===========================
+   DIÁLOGO (COMPORTAMIENTO OVERLAYS)
+   =========================== */
+:host ::ng-deep .p-dialog .p-dialog-content {
+  overflow: visible !important;
+}
+
+.p-dialog .p-dialog-content {
+  overflow: visible !important;
+}
+
+/* ===========================
+   DROPDOWN DENTRO DEL DIÁLOGO
+   =========================== */
+.p-dialog .p-dropdown {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.p-dialog .cat-panel {
+  left: 0 !important;
+  right: auto !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  background: #fff !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
+  z-index: 3000 !important;
+}
+
+.p-dialog .p-dropdown[aria-expanded="true"] {
+  margin-bottom: 12rem; 
+}
+
+/* ===========================
+   DIÁLOGO (ESTILO / MARCO / FONDO)
+   =========================== */
+.app-modal.p-dialog {
+  border: 1px solid #e2e8f0 !important;   
+  border-radius: 16px !important;
+  box-shadow: 0 20px 50px rgba(2, 8, 23, .18) !important;
+}
+
+.app-modal .p-dialog-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-top-left-radius: 16px !important;
+  border-top-right-radius: 16px !important;
+}
+
+.app-modal .p-dialog-content {
+  background: #f8fafc !important;
+  overflow: visible !important;
+}
+
+/* ===========================
+   BACKDROP / OVERLAY
+   =========================== */
+.p-dialog-mask.p-component-overlay {
+  background: rgba(15, 23, 42, 0.38) !important; 
+}
+.p-dialog .cat-panel { z-index: 3000 !important; width: 100% !important; }
+
+/* ===========================
+   PADDING / ESPACIADOS DEL DIÁLOGO
+   =========================== */
+.app-modal.p-dialog { border-radius: 16px !important; }
+.app-modal .p-dialog-header { padding: 1rem 1.5rem !important; }
+.app-modal .p-dialog-content { padding: 1.25rem 1.5rem !important; }
+.app-modal .p-dialog-footer { padding: 0.75rem 1.5rem 1rem !important; }
+
+.app-modal form { row-gap: 1rem; }
